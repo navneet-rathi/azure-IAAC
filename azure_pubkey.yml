@@ -1,16 +1,24 @@
 ---
 - name: Genrate and save public key in azure cloud
-  hosts: all
- # connection: local
+  hosts: localhost  
+  connection: local
   gather_facts: no
   tasks:
     - name: Generate SSH key pair
       community.crypto.openssh_keypair:
-        path: ~/.ssh/azure_key
+        path: ~/azure_key
         type: rsa
         size: 2048
         state: present
       register: ssh_key_info
+
+    - name: Debug SSH key info
+      debug:
+        var: ssh_key_info
+
+    - name: debug private key
+      ansible.builtin.shell: cat ~/azure_key
+      register: private_key_content
 
     - name: Create resource group
       azure_rm_resourcegroup:
