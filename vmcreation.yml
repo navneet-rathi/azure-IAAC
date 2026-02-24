@@ -80,3 +80,11 @@
         publisher: RedHat
         sku: 9-lvm
         version: latest
+        
+  - name: Set a variable to be used in a subsequent workflow job
+    ansible.builtin.set_stats:
+      data:
+        vm_name: "{{ vm_name }}"
+        location: "eastus"
+        
+        

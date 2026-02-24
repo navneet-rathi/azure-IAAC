@@ -6,9 +6,9 @@
     - azure.azcollection
 
   vars:
-    resource_group_name: "MyResourceGroup"
-    location: "eastus"
-    vm_name: "MySourceVM"
+    # resource_group_name: "MyResourceGroup"
+    # location: "eastus"
+    # vm_name: "MySourceVM"
     image_name: "MyCustomImage"
     # Define your Azure credentials if not using environment variables or a credentials file
     # subscription_id: "<Your_Subscription_ID>"
