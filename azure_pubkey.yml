@@ -1,0 +1,12 @@
+---
+- name: Genrate and save public key in azure cloud
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Generate SSH key pair
+      openssh_keypair:
+        path: ~/.ssh/azure_key
+        type: rsa
+        size: 2048
+        state: present
+      register: ssh_key_info   
