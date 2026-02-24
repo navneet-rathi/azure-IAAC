@@ -50,13 +50,14 @@
     aap_password: "primod123"
     aap_token: "h18YfbliJRcOpEVEt1GsnhfThvB6Io"
     aap_validate_certs: false
+
     controller_credentials:
-    - name: AZ_ssh_key
-      description: Credentials for Azure SSH Key
-      organization: Default
-      credential_type: machine
-      inputs:
-        username: azureuser
-        ssh_key_data: "{{ lookup('file', '~/azure_key') }}"           
+      - name: AZ_ssh_key
+        description: Credentials for Azure SSH Key
+        organization: Default
+        credential_type: machine
+        inputs:
+          username: azureuser
+          ssh_key_data: "{{ lookup('file', '~/azure_key') }}"           
   roles:
     - {role: infra.aap_configuration.controller_credentials, when: controller_credentials is defined}
