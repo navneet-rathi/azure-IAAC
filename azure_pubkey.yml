@@ -30,4 +30,9 @@
         resource_group: azresourcegroup
         name: myAzureSSHKey
         public_key: "{{ ssh_key_info.public_key }}"
-        location: eastus      
+        location: eastus
+
+    - name: Set a variable to be used in a subsequent workflow job
+      ansible.builtin.set_stats:
+        data:
+          azure_ssh_key: "{{ ssh_key_info.public_key }}"        
