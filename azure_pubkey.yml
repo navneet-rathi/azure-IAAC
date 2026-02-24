@@ -1,6 +1,7 @@
 ---
 - name: Genrate and save public key in azure cloud
-  hosts: all
+  hosts: localhost
+  connection: local
   gather_facts: no
   tasks:
     - name: Generate SSH key pair
