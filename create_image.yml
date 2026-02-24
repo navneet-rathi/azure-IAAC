@@ -1,0 +1,38 @@
+---
+- name: Create an image from an existing generalized VM
+  hosts: localhost
+  connection: local
+  collections:
+    - azure.azcollection
+
+  vars:
+    resource_group_name: "MyResourceGroup"
+    location: "eastus"
+    vm_name: "MySourceVM"
+    image_name: "MyCustomImage"
+    # Define your Azure credentials if not using environment variables or a credentials file
+    # subscription_id: "<Your_Subscription_ID>"
+    # client_id: "<Your_Client_ID>"
+    # secret: "<Your_Secret>"
+    # tenant: "<Your_Tenant_ID>"
+
+  tasks:
+    - name: Create the managed image
+      azure.azcollection.azure_rm_image:
+        resource_group: "{{ resource_group_name }}"
+        name: "{{ image_name }}"
+        location: "{{ location }}"
+        source_virtual_machine: "{{ vm_name }}"
+        # Set OS type and state (Generalized is required for creating an image from an existing VM)
+        os_type: "Linux" # or "Windows"
+        os_state: "Generalized"
+        # Optional: Distribute to a Shared Image Gallery for broader use
+        # gallery_name: "MyImageGallery"
+        # gallery_image_definition_name: "MyImageDefinition"
+        # gallery_image_version_name: "1.0.0"
+        state: present
+      register: image_output
+
+    - name: Display image ID
+      debug:
+        msg: "Image created with ID: {{ image_output.id }}"
