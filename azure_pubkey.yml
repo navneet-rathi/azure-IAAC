@@ -55,9 +55,9 @@
       - name: AZ_ssh_key
         description: Credentials for Azure SSH Key
         organization: Default
-        credential_type: machine
+        credential_type: "Machine"
         inputs:
           username: azureuser
-          ssh_key_data: "{{ lookup('file', '~/azure_key') }}"           
+          ssh_key_data: "{{ lookup('file', lookup('env','HOME') + '/azure_key') }}"
   roles:
     - {role: infra.aap_configuration.controller_credentials, when: controller_credentials is defined}
