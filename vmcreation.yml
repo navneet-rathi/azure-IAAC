@@ -59,7 +59,10 @@
       name: myNIC
       virtual_network: "{{myVnet}}"
       subnet: "{{mySubnet}}"
-      public_ip_name: "{{myPublicIP}}"
+      ip_configurations:
+        - name: ipconfig1
+          public_ip_address_name: "{{myPublicIP}}"
+          primary: true
       security_group: "{{myNetworkSecurityGroup}}"
   - name: Create VM
     azure_rm_virtualmachine:
