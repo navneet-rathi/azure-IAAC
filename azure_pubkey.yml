@@ -9,4 +9,16 @@
         type: rsa
         size: 2048
         state: present
-      register: ssh_key_info   
+      register: ssh_key_info
+
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: azresourcegroup
+        location: eastus
+        
+    - name: Create Azure SSH Public Key resource
+      azure.azcollection.azure_rm_sshpublickey:
+        resource_group: azresourcegroup
+        name: myAzureSSHKey
+        public_key: "{{ ssh_key_info.public_key }}"
+        location: eastus      
