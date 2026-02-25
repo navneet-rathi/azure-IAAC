@@ -71,16 +71,16 @@
       - name: CIS_Reporting
         organization: Default
         credentials:
-          - "AWS EC2 SSH Key"
+          - "AZ_ssh_key"
       - name: CIS
         organization: Default
         credentials:
-          - "AWS EC2 SSH Key" 
+          - "AZ_ssh_key" 
 
       - name: AWS_Infra_Hardning   
         organization: Default
         credentials:
-          - "AWS EC2 SSH Key" 
+          - "AZ_ssh_key" 
   roles:
     - infra.aap_configuration.controller_job_templates          
     - {role: infra.aap_configuration.controller_credentials, when: controller_credentials is defined}
