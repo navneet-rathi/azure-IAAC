@@ -66,5 +66,21 @@
         inputs:
           username: azureuser
           ssh_key_data: "{{ lookup('file', lookup('env','HOME') + '/azure_key') }}"
+
+    controller_templates:
+      - name: CIS_Reporting
+        organization: Default
+        credentials:
+          - "AWS EC2 SSH Key"
+      - name: CIS
+        organization: Default
+        credentials:
+          - "AWS EC2 SSH Key" 
+
+      - name: AWS_Infra_Hardning   
+        organization: Default
+        credentials:
+          - "AWS EC2 SSH Key" 
   roles:
+    - infra.aap_configuration.controller_job_templates          
     - {role: infra.aap_configuration.controller_credentials, when: controller_credentials is defined}
