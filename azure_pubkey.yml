@@ -24,7 +24,8 @@
     - name: debug private key
       ansible.builtin.shell: cat ~/azure_key
       register: private_key_content
-
+      no_log: yes
+      
     - name: Create resource group
       azure_rm_resourcegroup:
         name: "{{ resource_group_name }}"
