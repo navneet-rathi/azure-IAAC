@@ -71,15 +71,19 @@
     controller_templates:
       - name: CIS_Reporting
         organization: Default
+        inventory: azure
         credentials:
           - "AZ_ssh_key"
+          
       - name: CIS
         organization: Default
+        inventory: aazures
         credentials:
           - "AZ_ssh_key" 
 
       - name: AWS_Infra_Hardning   
         organization: Default
+        inventory: azure
         credentials:
           - "AZ_ssh_key" 
   roles:
