@@ -77,7 +77,7 @@
           
       - name: CIS
         organization: Default
-        inventory: aazures
+        inventory: azure
         credentials:
           - "AZ_ssh_key" 
 
