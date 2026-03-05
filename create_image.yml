@@ -19,7 +19,7 @@
   tasks:
     - name: Create the managed image
       azure.azcollection.azure_rm_image:
-        resource_group: "{{ resource_group_name }}"
+        resource_group: "{{ resource_group }}"
         name: "{{ image_name }}"
         location: "{{ location }}"
         source_virtual_machine: "{{ vm_name }}"
