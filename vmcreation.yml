@@ -15,7 +15,7 @@
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
-      location: westindia
+      location: southindia
 
   - name: Create virtual network
     azure_rm_virtualnetwork:
@@ -92,7 +92,7 @@
     ansible.builtin.set_stats:
       data:
         vm_name: "{{ vm_name }}"
-        location: "westindia"
+        location: southindia
         resource_group: "{{ resource_group }}"
         
         
