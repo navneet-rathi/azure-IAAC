@@ -17,6 +17,12 @@
     # tenant: "<Your_Tenant_ID>"
 
   tasks:
+    - name: Generalize VM before creating an image (Linux example)
+      azure.azcollection.azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vm_name }}"
+        generalized: yes
+
     - name: Create the managed image
       azure.azcollection.azure_rm_image:
         resource_group: "{{ resource_group }}"
