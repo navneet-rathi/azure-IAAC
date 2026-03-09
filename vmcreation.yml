@@ -70,6 +70,10 @@
           public_ip_address_name: "{{myPublicIP}}"
           primary: true
       security_group: "{{myNetworkSecurityGroup}}"
+  
+  - name: Put a pause for NIC to be up completely
+    ansible.builtin.pause:
+      seconds: 5
 
   - name: Create VM
     azure_rm_virtualmachine:
@@ -88,7 +92,7 @@
         sku: 9-lvm
         version: latest
     ignore_errors: true
-        
+
   - name: Set a variable to be used in a subsequent workflow job
     ansible.builtin.set_stats:
       data:
