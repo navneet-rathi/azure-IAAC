@@ -5,5 +5,5 @@ collections:
 #  - name: community.general
   - name: azure.azcollection
   - name: infra.aap_configuration
-    source: infra-aap_configuration-3.3.0.tar.gz
-    type: file
+#    source: infra-aap_configuration-3.3.0.tar.gz
+#    type: file
