@@ -24,8 +24,8 @@
         location: "{{ location }}"
         source: "{{ vm_name }}"
         # Set OS type and state (Generalized is required for creating an image from an existing VM)
-        os_type: "Linux" # or "Windows"
-        os_state: "Generalized"
+       # os_type: "Linux" # or "Windows"
+       # os_state: "Generalized"
         # Optional: Distribute to a Shared Image Gallery for broader use
         # gallery_name: "MyImageGallery"
         # gallery_image_definition_name: "MyImageDefinition"
