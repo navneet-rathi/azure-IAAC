@@ -87,6 +87,7 @@
         publisher: RedHat
         sku: 9-lvm
         version: latest
+    ignore_errors: true
         
   - name: Set a variable to be used in a subsequent workflow job
     ansible.builtin.set_stats:
