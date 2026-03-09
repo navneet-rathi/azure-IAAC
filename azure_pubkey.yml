@@ -29,14 +29,14 @@
     - name: Create resource group
       azure_rm_resourcegroup:
         name: "{{ resource_group_name }}"
-        location: eastus
+        location: westindia
         
     - name: Create Azure SSH Public Key resource
       azure.azcollection.azure_rm_sshpublickey:
         resource_group: "{{ resource_group_name }}"
         name: myAzureSSHKey
         public_key: "{{ ssh_key_info.public_key }}"
-        location: eastus
+        location: westindia
 
     - name: Set a variable to be used in a subsequent workflow job
       ansible.builtin.set_stats:
