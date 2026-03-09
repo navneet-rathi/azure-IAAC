@@ -22,7 +22,7 @@
         resource_group: "{{ resource_group }}"
         name: "{{ image_name }}"
         location: "{{ location }}"
-        source_virtual_machine: "{{ vm_name }}"
+        source: "{{ vm_name }}"
         # Set OS type and state (Generalized is required for creating an image from an existing VM)
         os_type: "Linux" # or "Windows"
         os_state: "Generalized"
